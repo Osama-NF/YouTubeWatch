@@ -1,26 +1,18 @@
-import { useState } from "react";
 import {
     FlatList,
     Text,
     View
 } from "react-native";
 import data from "../scripts/data";
+import ListItems from "./ListItems";
 
 export default function WatchLater() {
-    
-    const renderItem = (item) => {
-        return (
-            <Text>{item.video}</Text>
-        )
+
+    const filterData = (rawData) => {
+        return rawData.filter((item) => item.last == 0)
     }
-    
 
     return (
-        <View>
-            <FlatList
-            data={data}
-            renderItem={renderItem}
-            />
-        </View>
-        )
+        <ListItems data={filterData(data)}/>
+    )
 }
