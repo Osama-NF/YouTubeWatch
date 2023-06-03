@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import styles from './Styles/styles';
+import {styles} from './Styles/styles';
 import { 
   Text,
   View,

@@ -1,3 +1,5 @@
+import { API_KEY } from "../SECRET/secret"
+let API_CALL = 'https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PL4HFDpJb5YE9zNYmFDFkFztYtxBm8UkO9&key=' + API_KEY
 
 export default dummyData = [
     {
@@ -26,3 +28,16 @@ export default dummyData = [
         last: 1200
     }
 ]
+
+async function getPlayListData() {
+    let data = await fetch(API_CALL,{
+        method: "GET",
+        headers: {
+        "Content-Type": "application/json",
+        }
+    })
+    let JSONdata = await data.json()
+    console.warn(JSONdata)
+
+}
+getPlayListData()
