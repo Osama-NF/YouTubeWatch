@@ -5,8 +5,9 @@ import {
   View,
   FlatList
 } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
+import { NavigationContainer} from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { useEffect } from 'react';
 
 import Watching from './Components/Watching';
 import WatchLater from './Components/WatchLater';

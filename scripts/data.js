@@ -29,6 +29,8 @@ export default dummyData = [
     }
 ]
 
+
+// not used yet
 async function getPlayListData() {
     let data = await fetch(API_CALL,{
         method: "GET",
@@ -38,6 +40,4 @@ async function getPlayListData() {
     })
     let JSONdata = await data.json()
     console.warn(JSONdata)
-
 }
-getPlayListData()
