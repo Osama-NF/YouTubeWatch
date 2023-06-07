@@ -3,8 +3,8 @@ import {
     Text,
     View
 } from "react-native";
-import data from "../scripts/data";
-import ListItems from "./ListItems";
+import data from "../../scripts/data";
+import ListItems from "../../Components/ListItems";
 
 export default function WatchLater() {
 

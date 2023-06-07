@@ -3,37 +3,50 @@ import {
     FlatList,
     Text,
     View,
-    Image
+    Image,
+    Pressable
 } from "react-native";
 import img from '../imgs/test.jpg'
+import { useNavigation } from "@react-navigation/native";
 
-export default function ListItems({data}) {
+export default function ListItems(props) {
+
+    const Navigation = useNavigation()
 
     const renderItem = ({item}) => {
         return (
-            <View style={listItemsStyle.item}>
+            <Pressable
+            onPress={() => {
+                Navigation.navigate('VideoScreen', item )
+            }}
+            >
 
-                <View style={listItemsStyle.textContainer}>
-                    <Text style={listItemsStyle.text}>
-                        {item.video}
-                    </Text>
-                </View>
+                <View style={listItemsStyle.item}>
 
-                <View style={listItemsStyle.imageLastContainer}>
-
-                    <View style={listItemsStyle.imgContainer}>
-                        <Image source={img} style={listItemsStyle.img} resizeMode="center"/>
-                    </View>
-
-                    <View style={listItemsStyle.lastContainer}>
-                        <Text style={listItemsStyle.last}>
-                            {item.last}
+                    <View style={listItemsStyle.textContainer}>
+                        <Text style={listItemsStyle.text}>
+                            {item.video}
                         </Text>
                     </View>
 
+                    <View style={listItemsStyle.imageLastContainer}>
+
+                        <View style={listItemsStyle.imgContainer}>
+                            <Image source={img} style={listItemsStyle.img} resizeMode="center"/>
+                        </View>
+
+                        <View style={listItemsStyle.lastContainer}>
+                            <Text style={listItemsStyle.last}>
+                                {item.last}
+                            </Text>
+                        </View>
+
+                    </View>
+                    
                 </View>
-                
-            </View>
+
+            </Pressable>
+
         )
     }
     
@@ -47,7 +60,7 @@ export default function ListItems({data}) {
 
     return (
         <FlatList
-        data={data}
+        data={props.data}
         renderItem={renderItem}
         keyExtractor={(item) => item.id}
         ItemSeparatorComponent={<Separator/>}
