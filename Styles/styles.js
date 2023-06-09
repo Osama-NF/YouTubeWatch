@@ -57,3 +57,32 @@ export const listItemsStyle = StyleSheet.create({
     alignSelf: "center"
   }
 })
+
+export const VideoScreenStyle = StyleSheet.create({
+  videoContainer: {
+    
+  },
+  videoInfo: {
+    height: '12%',
+    flexDirection: 'row-reverse',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    padding: 10,
+    borderWidth: 1,
+    backgroundColor: '#ddd'
+  },
+  videoControls: {
+    justifyContent: 'space-evenly',
+    height: '50%',
+    alignItems: 'center'
+  },
+  controlGroup: {
+    flexDirection: 'row',
+  },
+  btn: {
+    borderWidth: 1,
+    borderRadius: 40,
+    margin:5,
+    backgroundColor: '#2cc'
+  }
+})

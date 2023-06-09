@@ -1,5 +1,6 @@
 import { API_KEY } from "../SECRET/secret"
-let API_CALL = 'https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PL4HFDpJb5YE9zNYmFDFkFztYtxBm8UkO9&key=' + API_KEY
+const PlaylistId = 'PL4HFDpJb5YE9zNYmFDFkFztYtxBm8UkO9'
+let API_CALL = 'https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=' + PlaylistId + '&key=' + API_KEY
 
 export default dummyData = [
     {
@@ -30,7 +31,8 @@ export default dummyData = [
     {
         video: "react native yt player",
         id: "w2ifba5_1qI",
-        last: 0
+        last: 0,
+        fullLength: 2000
     }
 ]
 
