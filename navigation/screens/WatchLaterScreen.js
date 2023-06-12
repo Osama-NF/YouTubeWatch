@@ -1,8 +1,3 @@
-import {
-    FlatList,
-    Text,
-    View
-} from "react-native";
 import data from "../../scripts/data";
 import ListItems from "../../Components/ListItems";
 

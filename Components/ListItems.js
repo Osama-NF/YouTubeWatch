@@ -32,12 +32,12 @@ export default function ListItems(props) {
                     <View style={listItemsStyle.imageLastContainer}>
 
                         <View style={listItemsStyle.imgContainer}>
-                            <Image source={img} style={listItemsStyle.img} resizeMode="center"/>
+                            <Image src={item.thumbnail} style={listItemsStyle.img} resizeMode="center"/>
                         </View>
 
                         <View style={listItemsStyle.lastContainer}>
                             <Text style={listItemsStyle.last}>
-                                {item.last}
+                                {item.last} \ {item.fullLength}
                             </Text>
                         </View>
 
