@@ -1,4 +1,5 @@
 import { API_KEY } from "../SECRET/secret"
+import { addToDB } from "./db"
 const PlaylistId = 'PL4HFDpJb5YE9zNYmFDFkFztYtxBm8UkO9'
 let API_CALL = 'https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=' + PlaylistId + '&key=' + API_KEY
 
@@ -49,7 +50,7 @@ export default dummyData = [
 
 
 // not used yet
-async function getPlayListData() {
+export async function getPlayListData() {
     let data = await fetch(API_CALL,{
         method: "GET",
         headers: {
@@ -57,5 +58,18 @@ async function getPlayListData() {
         }
     })
     let JSONdata = await data.json()
-    console.warn(JSONdata)
+    
+    return reformatYtData(JSONdata['items'])
+}
+
+function reformatYtData(arr) {
+    let newData = []
+    arr.foreach(item => {
+        newData += {
+            title: item.snippet.title,
+            thumbnail: item.snippet.thumbnails.medium.url,
+            ytid: item.snippet.resourceId.videoId
+        }
+    })
+    return newData
 }

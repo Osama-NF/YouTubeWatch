@@ -4,10 +4,12 @@ import {
     Text,
     View,
     Image,
-    Pressable
+    Pressable,
+    Button
 } from "react-native";
 import img from '../imgs/test.jpg'
 import { useNavigation } from "@react-navigation/native";
+import { getPlayListData } from "../scripts/data";
 
 export default function ListItems(props) {
 
@@ -52,10 +54,16 @@ export default function ListItems(props) {
     
     const Separator = () => {
         return (
-            <View style={listItemsStyle.separator}>
+            // <View style={listItemsStyle.separator}>
 
-            </View>
-        )
+            // </View>
+            <Button
+            title="temporary"
+            onPress={()=>{
+                getPlayListData()
+            }}
+            />
+            )
     }
 
     return (
