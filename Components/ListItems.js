@@ -1,19 +1,22 @@
-import {styles, listItemsStyle} from "../Styles/styles";
+import {listItemsStyle} from "../Styles/styles";
+import * as React from 'react'
 import {
     FlatList,
     Text,
     View,
     Image,
     Pressable,
-    Button
+    RefreshControl
 } from "react-native";
-import img from '../imgs/test.jpg'
 import { useNavigation } from "@react-navigation/native";
-import { getPlayListData } from "../scripts/data";
+import { addToDB } from "../scripts/db";
+import * as SQLite from 'expo-sqlite'
 
 export default function ListItems(props) {
 
     const Navigation = useNavigation()
+    const [isRefreshing, setIsRefreshing] = React.useState(false)
+
 
     const renderItem = ({item}) => {
         return (
@@ -54,16 +57,15 @@ export default function ListItems(props) {
     
     const Separator = () => {
         return (
-            // <View style={listItemsStyle.separator}>
+            <View style={listItemsStyle.separator}>
 
-            // </View>
-            <Button
-            title="temporary"
-            onPress={()=>{
-                getPlayListData()
-            }}
-            />
-            )
+            </View>
+        )    
+    }
+
+    const handleRefresh = () => {
+        setIsRefreshing(true)
+        addToDB().then(setIsRefreshing(false))
     }
 
     return (
@@ -72,6 +74,12 @@ export default function ListItems(props) {
         renderItem={renderItem}
         keyExtractor={(item) => item.id}
         ItemSeparatorComponent={<Separator/>}
+        refreshControl={
+            <RefreshControl
+            onRefresh={handleRefresh}
+            refreshing={isRefreshing}
+            />
+        }
         />
     )
 }
