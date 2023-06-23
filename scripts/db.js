@@ -20,7 +20,6 @@ export async function addToDB() {
     })
 
     items = await getPlayListData()
-    console.log('#########################################################################')
     items.forEach(item => insertIntoDB(item))
 }
 
@@ -36,17 +35,28 @@ async function checkIfItemExists(id) {
 async function insertIntoDB(item) {
         db.transaction(tx => {
             tx.executeSql(`
-            INSERT INTO 
+            INSERT OR IGNORE INTO 
             Videos (YTID, title, thumbnail)
             VALUES (?, ?, ?)
             `, 
             [item.ytid,
             item.title,
-            item.thumbnail], (_, result) => {
-                console.log(result)
-            })
+            item.thumbnail]
+            )
         }, (err) => {
-            console.log(err)
+            console.error(err)
         })
     
+}
+
+
+export async function pullData(query) {
+    let data;
+    db.transaction(tx => {
+        tx.executeSql(query,[], (_, result) => {
+            console.log(result.rows._array)
+            data = result.rows._array
+        })
+    })
+    return data
 }

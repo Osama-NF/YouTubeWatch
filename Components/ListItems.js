@@ -10,7 +10,6 @@ import {
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { addToDB } from "../scripts/db";
-import * as SQLite from 'expo-sqlite'
 
 export default function ListItems(props) {
 
@@ -18,7 +17,7 @@ export default function ListItems(props) {
     const [isRefreshing, setIsRefreshing] = React.useState(false)
 
 
-    const renderItem = ({item}) => {
+    const renderItem = async ({item}) => {
         return (
             <Pressable
             onPress={() => {
@@ -30,7 +29,7 @@ export default function ListItems(props) {
 
                     <View style={listItemsStyle.textContainer}>
                         <Text style={listItemsStyle.text}>
-                            {item.video}
+                            {item.title}
                         </Text>
                     </View>
 
@@ -42,7 +41,7 @@ export default function ListItems(props) {
 
                         <View style={listItemsStyle.lastContainer}>
                             <Text style={listItemsStyle.last}>
-                                {item.last} \ {item.fullLength}
+                                {item.last} \ {item.full_length}
                             </Text>
                         </View>
 
@@ -72,7 +71,7 @@ export default function ListItems(props) {
         <FlatList
         data={props.data}
         renderItem={renderItem}
-        keyExtractor={(item) => item.id}
+        keyExtractor={(item) => item.YTID}
         ItemSeparatorComponent={<Separator/>}
         refreshControl={
             <RefreshControl

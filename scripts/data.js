@@ -6,45 +6,45 @@ let API_CALL = `https://youtube.googleapis.com/youtube/v3/playlistItems?part=sni
 export default dummyData = [
     {
         thumbnail: 'https://i.ytimg.com/vi/ZsiRmIGGGno/mqdefault.jpg',
-        video: 'Interview with dude',
-        id: 'W6F7vPMdsLw',
+        title: 'Interview with dude',
+        YTID: 'W6F7vPMdsLw',
         last: 0,
-        fullLength: 2000
+        full_length: 2000
     },
     {
         thumbnail: 'https://i.ytimg.com/vi/ZsiRmIGGGno/mqdefault.jpg',
-        video: 'Lecture on something @university',
-        id: 'mc33$vnsdfuerv',
+        title: 'Lecture on something @university',
+        YTID: 'mc33$vnsdfuerv',
         last: 2000,
-        fullLength: 2000
+        full_length: 2000
     },
     {
         thumbnail: 'https://i.ytimg.com/vi/ZsiRmIGGGno/mqdefault.jpg',
-        video: 'math explained | fractions',
-        id: 'mgr5vnjuerv',
+        title: 'math explained | fractions',
+        YTID: 'mgr5vnjuerv',
         last: 0,
-        fullLength: 2000
+        full_length: 2000
     },
     {
         thumbnail: 'https://i.ytimg.com/vi/ZsiRmIGGGno/mqdefault.jpg',
-        video: 'Lets talk about AI w\\dude',
-        id: 'mgr5vnjusssxfv342425serv',
+        title: 'Lets talk about AI w\\dude',
+        YTID: 'mgr5vnjusssxfv342425serv',
         last: 53,
-        fullLength: 2000
+        full_length: 2000
     },
     {
         thumbnail: 'https://i.ytimg.com/vi/ZsiRmIGGGno/mqdefault.jpg',
-        video: 'The man that did the thing while the time was sometime on thing with thing one two three long title here does this show i wonder',
-        id: 'mgr5vnjuwerwr23erv',
+        title: 'The man that did the thing while the time was sometime on thing with thing one two three long title here does this show i wonder',
+        YTID: 'mgr5vnjuwerwr23erv',
         last: 1200,
-        fullLength: 2000
+        full_length: 2000
     },
     {
         thumbnail: 'https://i.ytimg.com/vi/ZsiRmIGGGno/mqdefault.jpg',
-        video: "اهلا وسهلا ",
-        id: "w2ifba5_1qI",
+        title: "اهلا وسهلا ",
+        YTID: "w2ifba5_1qI",
         last: 0,
-        fullLength: 2000
+        full_length: 2000
     }
 ]
 
