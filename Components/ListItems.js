@@ -12,12 +12,11 @@ import { useNavigation } from "@react-navigation/native";
 import { addToDB } from "../scripts/db";
 
 export default function ListItems(props) {
-
     const Navigation = useNavigation()
     const [isRefreshing, setIsRefreshing] = React.useState(false)
 
 
-    const renderItem = async ({item}) => {
+    const renderItem = ({item}) => {
         return (
             <Pressable
             onPress={() => {
