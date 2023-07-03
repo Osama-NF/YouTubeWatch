@@ -23,15 +23,6 @@ export async function addToDB() {
     items.forEach(item => insertIntoDB(item))
 }
 
-// Will probably delete this one
-async function checkIfItemExists(id) {
-    db.transaction(tx => {
-        tx.executeSql(`SELECT * FROM Videos WHERE YTID = ?`, [id], (_,result) => {
-            return result.rows.length
-        })
-    })
-}
-
 async function insertIntoDB(item) {
         db.transaction(tx => {
             tx.executeSql(`
@@ -49,14 +40,17 @@ async function insertIntoDB(item) {
     
 }
 
+// export async function pullData(query, updateState) {
 
-export async function pullData(query) {
-    let data;
-    db.transaction(tx => {
-        tx.executeSql(query,[], (_, result) => {
-            console.log(result.rows._array)
-            data = result.rows._array
-        })
-    })
-    return data
-}
+
+//     db.transaction(tx => {
+
+//         console.error('inside transaction')
+//         tx.executeSql(query,[], (_, result) => {
+//             console.warn(result.rows._array)
+
+//             updateState(result.rows._array)
+
+//         },(_,err) => console.log("error: " , err))
+//     })
+// }
