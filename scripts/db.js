@@ -2,7 +2,7 @@ import * as SQLite from 'expo-sqlite';
 import * as React from 'react';
 import { getPlayListData } from './data';
 
-const db = SQLite.openDatabase('YTitems.db');
+export const db = SQLite.openDatabase('YTitems.db');
 
 
 export async function addToDB() {
@@ -40,17 +40,22 @@ async function insertIntoDB(item) {
     
 }
 
-// export async function pullData(query, updateState) {
+
+pullData('SELECT * FROM Videos WHERE last = 0')
+export async function pullData(query) {
+
+    const [data, setData] = React.useState()
+
+    db.transaction(tx => {
+
+        console.error('inside transaction')
+        tx.executeSql(query,[], (_, result) => {
+
+            setData(result.rows._array)
+            return data
+
+        },(_,err) => console.log("error: " , err))
+    })
 
 
-//     db.transaction(tx => {
-
-//         console.error('inside transaction')
-//         tx.executeSql(query,[], (_, result) => {
-//             console.warn(result.rows._array)
-
-//             updateState(result.rows._array)
-
-//         },(_,err) => console.log("error: " , err))
-//     })
-// }
+}
